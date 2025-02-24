@@ -61,7 +61,7 @@ public class Graph<V>{
         for(Set<V> nei: Edges.values()){
             count = nei.size();
         }
-        return count;
+        return count/2;
     }
     public Set<V> successor(V vertex){
         return Edges.getOrDefault(vertex,new HashSet<>());
@@ -78,18 +78,4 @@ public class Graph<V>{
         throw new RuntimeException("A implementar");
     }
 
-    public static void main(String [] args){
-        Graph grafo = new Graph<Integer>();
-        grafo.addVertex(1);
-        grafo.addVertex(2);
-        grafo.addVertex(3);
-        grafo.addVertex(4);
-
-        grafo.addEdge(1,2);
-        grafo.addEdge(2,3);
-        grafo.addEdge(3,1);
-        grafo.addEdge(3,4);
-
-        System.out.println(grafo.ChromaticNumber());//debería dar 3
-    }
 }
